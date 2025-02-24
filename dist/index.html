@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>溫度轉換器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>溫度轉換器</h1>
+    <input type="number" id="temperature" placeholder="請輸入溫度">
+    
+    <select id="convertFrom">
+        <option value="celsius">攝氏 (°C)</option>
+        <option value="fahrenheit">華氏 (°F)</option>
+    </select>
+    
+    <button onclick="convertTemperature()">轉換</button>
+    
+    <div id="result"></div>
+
+    <script>
+        function convertTemperature() {
+            const temperature = parseFloat(document.getElementById('temperature').value);
+            const convertFrom = document.getElementById('convertFrom').value;
+            let result;
+
+            if (convertFrom === 'celsius') {
+                // 攝氏轉華氏
+                result = (temperature * 9/5) + 32;
+                document.getElementById('result').innerHTML = 
+                    `${temperature}°C = ${result.toFixed(2)}°F`;
+            } else {
+                // 華氏轉攝氏
+                result = (temperature - 32) * 5/9;
+                document.getElementById('result').innerHTML = 
+                    `${temperature}°F = ${result.toFixed(2)}°C`;
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
